@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.codepath.mypizza.fragments.PizzaDetailFragment;
 import com.codepath.mypizza.fragments.PizzaMenuFragment;
+import com.leanplum.Leanplum;
 
 public class MainActivity extends AppCompatActivity  implements PizzaMenuFragment.OnItemSelectedListener {
 
@@ -16,6 +17,8 @@ public class MainActivity extends AppCompatActivity  implements PizzaMenuFragmen
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+
+    findViewById(R.id.show_message).setOnClickListener(view -> Leanplum.track("show_rich_interstitial"));
 
 
     Log.d("DEBUG", getResources().getConfiguration().orientation + "");
